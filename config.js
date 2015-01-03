@@ -6,10 +6,36 @@ var path = require('path'),
     config;
 
 config = {
+    // ### Production
+    // When running Ghost in the wild, use the production environment
+    // Configure your URL and mail settings here
+    production: {
+	url: 'http://'+process.env.OPENSHIFT_APP_DNS,
+        mail: {},
+        database: {
+            client: 'postgres',
+            connection: {
+                host: process.env.OPENSHIFT_POSTGRESQL_DB_HOST,
+                database: process.env.POSTGRESQL_DB_NAME,
+                user: process.env.OPENSHIFT_POSTGRESQL_DB_USERNAME,
+                password: process.env.OPENSHIFT_POSTGRESQL_DB_PASSWORD,
+                port: process.env.OPENSHIFT_POSTGRESQL_DB_PORT
+            },
+            debug: false
+        },
+        server: {
+            // Host to be passed to node's `net.Server#listen()`
+            host: process.env.OPENSHIFT_NODEJS_IP,
+            // Port to be passed to node's `net.Server#listen()`, for iisnode set this to `process.env.PORT`
+            port: process.env.OPENSHIFT_NODEJS_PORT
+        }
+    },
+
     // ### Development **(default)**
     development: {
         // The url to use when providing links to the site, E.g. in RSS and email.
-        url: 'http://my-ghost-blog.com',
+        // Change this to your Ghost blogs published URL.
+        url: 'http://localhost:2368',
 
         // Example mail config
         // Visit http://support.ghost.org/mail for instructions
@@ -41,27 +67,6 @@ config = {
         },
         paths: {
             contentPath: path.join(__dirname, '/content/')
-        }
-    },
-
-    // ### Production
-    // When running Ghost in the wild, use the production environment
-    // Configure your URL and mail settings here
-    production: {
-        url: 'http://'+process.env.OPENSHIFT_APP_DNS,
-        mail: {},
-        database: {
-            client: 'sqlite3',
-            connection: {
-                filename: path.join(__dirname, '/content/data/ghost.db')
-            },
-            debug: false
-        },
-        server: {
-            // Host to be passed to node's `net.Server#listen()`
-            host: process.env.OPENSHIFT_NODEJS_IP,
-            // Port to be passed to node's `net.Server#listen()`, for iisnode set this to `process.env.PORT`
-            port: process.env.OPENSHIFT_NODEJS_PORT
         }
     },
 
