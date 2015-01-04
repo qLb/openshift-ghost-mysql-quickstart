@@ -2,7 +2,7 @@ This is a fork of [the original ghost quickstart available on openshift](https:/
 
 To install it from the command line make sure you have the latest rhc gem installed and then run the following command: replacing 'ghost' if you want your app to be named something else
 
-	rhc app create ghost nodejs-0.10 mysql-5.5 --env NODE_ENV=production --from-code https://github.com/lemur3/openshift-ghost-quickstart.git
+	rhc app create ghost nodejs-0.10 mysql-5.5 --env NODE_ENV=production --from-code https://github.com/lemur3/openshift-ghost-mysql-quickstart.git
 
 'ghost' will be the name of your application in the above example.
 
