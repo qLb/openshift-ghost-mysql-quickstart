@@ -1,5 +1,5 @@
 #!/bin/bash
 echo "Exporting Node Environment (production)"
 export NODE_ENV=production
-echo "Setting postgresql DB name environment variable"
+echo "Setting mysql DB name environment variable"
 export MYSQL_DB_NAME=$OPENSHIFT_APP_NAME
