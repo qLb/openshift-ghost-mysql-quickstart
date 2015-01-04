@@ -13,13 +13,13 @@ config = {
 	url: 'http://'+process.env.OPENSHIFT_APP_DNS,
         mail: {},
         database: {
-            client: 'postgres',
+            client: 'mysql',
             connection: {
-                host: process.env.OPENSHIFT_POSTGRESQL_DB_HOST,
-                database: process.env.POSTGRESQL_DB_NAME,
-                user: process.env.OPENSHIFT_POSTGRESQL_DB_USERNAME,
-                password: process.env.OPENSHIFT_POSTGRESQL_DB_PASSWORD,
-                port: process.env.OPENSHIFT_POSTGRESQL_DB_PORT
+                host: process.env.OPENSHIFT_MYSQL_DB_HOST,
+                database: process.env.MYSQL_DB_NAME,
+                user: process.env.OPENSHIFT_MYSQL_DB_USERNAME,
+                password: process.env.OPENSHIFT_MYSQL_DB_PASSWORD,
+                port: process.env.OPENSHIFT_MYSQL_DB_PORT
             },
             debug: false
         },
