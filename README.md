@@ -21,10 +21,12 @@ Note these OpenShift specific changes carried over from the original quickstart:
 
 To install a theme one has to use the `git submodule add` like so:
 
-`git submodule add https//github.comTryGhost/Roon.git $ghost_dir/content/themes/roon`
-`git add .`
-`git commit -am "roon theme upload!"`
-`git push`
+```
+git submodule add https//github.comTryGhost/Roon.git $ghost_dir/content/themes/roon
+git add .
+git commit -am "roon theme upload!"
+git push
+```
 
 voila!
 
